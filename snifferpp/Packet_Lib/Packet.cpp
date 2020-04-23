@@ -35,7 +35,7 @@ std::ostream& operator<<(std::ostream& os, Packet p){
     os << p.get_header() << endl;
     os << "Raw Packet Data" << endl;
     for(auto b : p.get_data()) {
-        os << std::setfill('0') << std::setw(2) << std::hex << +b << " ";
+        os << std::setfill('0') << std::setw(2) << std::hex << (0xff & b) << " ";
     } // TODO: this is a jank way of doing this, unclear if right
     os << endl;
     os.copyfmt(tmp);
